@@ -37,3 +37,6 @@ home_dir/bin/*
 
 # set wm
 !home_dir/.config/plasma-workspace
+
+# rofi
+!home_dir/.config/rofi
