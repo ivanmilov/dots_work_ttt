@@ -1,7 +1,10 @@
 # Ignore everything:
-/*
+home_dir/*
 
-# Except for:
-!/.gitignore
-!/.gitattributes
-!/README.md
+
+# Except for
+
+# home
+!home_dir
+!home_dir/.gitconfig
+!home_dir/.profile

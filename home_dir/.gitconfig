@@ -1,0 +1,6 @@
+[user]
+	signingkey = ED3DC6113BED3A22
+	email = 522518+ivanmilov@users.noreply.github.com
+	name = Ivan Milov
+[commit]
+	gpgSign = true
