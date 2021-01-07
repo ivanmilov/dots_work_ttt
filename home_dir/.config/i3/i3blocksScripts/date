@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+################################
+# Shows current date
+#
+# @param {String} format: The format of the date
+# @return {Date}: Current date
+################################
+
+format=${BLOCK_INSTANCE:-"%Y-%m-%d %H:%M"}
+
+case $BLOCK_BUTTON in
+    1)
+        LC_ALL=en_US.utf8 date +"%d %B, %A, %U"
+    ;;
+    # right click
+    3)
+        zenity --calendar --title="" --text=""
+        date +"$format"
+        ;;
+    *)
+        date +"$format"
+    ;;
+
+esac

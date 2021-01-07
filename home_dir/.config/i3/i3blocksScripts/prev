@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# echo `playerctl --player=spotify metadata artist`
+# echo `playerctl --player=spotify metadata artist`
+# echo "#20111b"
+# exit 0
+
+if [ "$BLOCK_BUTTON" == 1 ]; then
+	# print numeric from cache
+	cached=$(GetLevelFromCache)
+	echo $cached%
+	echo $cached%
+	echo ""
+	exit 0
+elif [ "$BLOCK_BUTTON" == 3 ]; then
+	# print icon from cache
+	CURRENTLEVEL=$(GetLevelFromCache)
+else
+	CURRENTLEVEL=$(GetLevel)
+fi

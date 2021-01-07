@@ -1,0 +1,28 @@
+#!/bin/bash
+
+. ~/.my_zsh/user_func.sh
+
+SPOTIFY_STAT=`playerctl -p spotify status 2>/dev/null`
+
+if [[ $SPOTIFY_STAT = "Playing" ]]; then
+	echo ""
+	exit 0
+fi
+
+ACTIVE_PLAYER=$(my_get_active_player)
+
+if [ -z "$ACTIVE_PLAYER" ] || [ $ACTIVE_PLAYER = "spotify" ]; then
+	echo ""
+	exit 0
+fi
+
+if
+ [ "$BLOCK_BUTTON" = "1" ]; then
+	playerctl -p "$ACTIVE_PLAYER" previous
+elif [ "$BLOCK_BUTTON" = "2" ]; then
+	playerctl -p "$ACTIVE_PLAYER" play-pause
+elif [ "$BLOCK_BUTTON" = "3" ]; then
+	playerctl -p "$ACTIVE_PLAYER" next
+fi
+
+echo `playerctl -p $ACTIVE_PLAYER metadata title 2>/dev/null`

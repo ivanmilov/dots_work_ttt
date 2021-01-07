@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. ~/.my_zsh/user_func.sh
+
+if [ "$BLOCK_BUTTON" = "1" ]; then
+	PLAYER=$(my_get_active_player)
+	[ ${#PLAYER} -gt 0 ] && playerctl -p "$PLAYER" next
+fi
+
+echo "怜 "

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+TOP=$(top -bn1 -o %CPU  U i  -w 200| sed -n '/USER/{n;p;}' )
+
+PID=$( echo ${TOP} | awk '{ printf("%s", ""$1""); }')
+CPU=$( echo ${TOP} | awk '{ printf("%s",""$9""); }' | cut -f1 -d".")
+PROC=$(echo ${TOP} | awk '{ printf("%s",""$12""); }')
+
+if [ "$BLOCK_BUTTON" == 1 ]; then
+  # zenity --info --width=200 --height=100 --ellipsize --text "$PROC $PID"
+  bkill=$(zenity --question --text "Kill this shit?\n$PROC\nPID: $PID"; echo $?)
+  if [ $bkill -eq 0 ]; then 
+  	kill -9 $PID
+  fi
+fi
+
+echo $CPU $PROC 
+echo $CPU $PROC
+	
+if [[ $CPU -ge 50 ]]; then
+    echo "#00FF00"
+else
+  	echo "#444444"
+fi
