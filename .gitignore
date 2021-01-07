@@ -17,3 +17,9 @@ home_dir/bin/*
 !home_dir/bin/
 !home_dir/bin/c++
 !home_dir/bin/vpn
+
+## .config
+!home_dir/.config/
+
+# htop
+!home_dir/.config/htop
