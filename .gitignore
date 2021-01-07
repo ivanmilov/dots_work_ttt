@@ -40,3 +40,6 @@ home_dir/bin/*
 
 # rofi
 !home_dir/.config/rofi
+
+# wall
+!home_dir/wall
