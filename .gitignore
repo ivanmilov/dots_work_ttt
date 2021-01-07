@@ -8,3 +8,6 @@ home_dir/*
 !home_dir
 !home_dir/.gitconfig
 !home_dir/.profile
+
+# bazel
+!home_dir/.bazelrc
