@@ -1,0 +1,40 @@
+#!/bin/bash
+
+msg_file=/dev/null
+# msg_file=/dev/stdout
+
+tmp_path="$HOME/.cache/c++/"
+
+mkdir -p "$tmp_path"
+
+tmp_file="$tmp_path$1.c++"
+exe_file="$tmp_path$1.bin"
+# неплохо было бы
+# проверить, что переменная вообще установлена, прежде чем
+# что-то компилировать.
+
+comment_first_line=""
+
+if [[ "$(head -1 $1)" == *"c++"* ]]; then
+    comment_first_line="//"
+fi
+
+
+if [ "$1" -nt  "$exe_file" ] || [ ! -f "$exe_file" ] ; then
+
+    echo "Need to recompile.." > $msg_file
+
+    echo -n $comment_first_line | cat -- - "$1" > "$tmp_file"
+
+    g++ -std=c++2a -o "$exe_file" "$tmp_file"
+
+    if [ $? -eq 0 ]
+    then
+        echo "Compiled ok" > $msg_file
+    else
+        echo "Compile error" > $msg_file
+        exit 255
+    fi
+fi
+
+shift ; exec "$exe_file" "$@"

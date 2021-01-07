@@ -1,3 +1,4 @@
 *.key filter=git-crypt diff=git-crypt
 home_dir/.ssh/** filter=git-crypt diff=git-crypt
-home_dir/.config/i3/scripts/pss.sh
+home_dir/.config/i3/scripts/pss.sh filter=git-crypt diff=git-crypt
+home_dir/bin/vpn filter=git-crypt diff=git-crypt

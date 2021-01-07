@@ -11,3 +11,9 @@ home_dir/*
 
 # bazel
 !home_dir/.bazelrc
+
+# ~/bin
+home_dir/bin/*
+!home_dir/bin/
+!home_dir/bin/c++
+!home_dir/bin/vpn
