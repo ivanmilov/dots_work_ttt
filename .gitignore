@@ -13,6 +13,10 @@ home_dir/.config/*
 # bazel
 !home_dir/.bazelrc
 
+# zsh
+!home_dir/.zshrc
+!home_dir/.my_zsh/
+
 # ~/bin
 home_dir/bin/*
 !home_dir/bin/
