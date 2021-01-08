@@ -5,8 +5,18 @@ cd ~/dots_work_ttt
 sudo mount -B ~/ home_dir/
 ```
 ## [git-crypt](https://github.com/AGWA/git-crypt)
-```
+```bash
+gpg --list-secret-keys --keyid-format LONG
+gpg --export -a "Your Name" > other_user_pub.key
+# send other_user_pub.key to the 'admin'
+...
+gpg --import other_user_pub.key
+git-crypt add-gpg-user --trusted AAABBBCCC_key_id
+git push
+...
 git-crypt unlock
+...
+git-crypt status -e
 ```
 
 
