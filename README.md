@@ -11,6 +11,7 @@ git-crypt unlock
 
 
 ## Addons
+* [alacritty](https://github.com/alacritty/alacritty)
 * [autotiling](https://github.com/nwg-piotr/autotiling)
 * [i3bloks](https://github.com/ivanmilov/i3blocks)
 * [picom](https://github.com/yshui/picom)
@@ -18,6 +19,9 @@ git-crypt unlock
 * [spotify_remote](https://github.com/ivanmilov/spotify_remote) for media blocks
 * [telegram_test_message_bot](https://github.com/ivanmilov/telegram_test_message_bot) for timer block
 * [xkblayout-state](https://github.com/nonpop/xkblayout-state) for lock.sh
+* fonts
+  * [FiraCode](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
+  * [MesloLGS](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) for zsh
 ## zsh
 * [fdfind](https://github.com/sharkdp/fd#installation)
 * [fzf](https://github.com/junegunn/fzf)
