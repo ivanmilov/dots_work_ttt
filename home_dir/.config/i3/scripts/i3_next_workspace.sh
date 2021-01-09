@@ -3,7 +3,7 @@
 MIN=1
 if [ ! -z ${1+x} ]; then MIN=$1; fi
 
-WS=$(i3-msg -t get_workspaces | tr , '\n' | grep '"num":' | cut -d: -f2 | sort -n | tr '\n' ' ')
+WS=$(i3-msg -t get_workspaces | jq '.[].num' | sort -n | tr '\n' ' ')
 
 for val1 in ${WS[*]}; do
 	if [[ " ${WS[@]} " =~ " $MIN " ]]; then
