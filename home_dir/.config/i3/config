@@ -348,7 +348,7 @@ mode "$mode_gaps_outer" {
 
 bindsym $mod+x exec --no-startup-id "$HOME/proj/i3-easyfocus/i3-easyfocus -a"
 
-bindsym $mod+h exec --no-startup-id "cat $HOME/.config/i3/config | sed -n -e 's/^bindsym\s\(.\+\).*/\1/p' | rofi -dmenu -matching glob -i"
+bindsym $mod+h exec --no-startup-id "i3-msg -t get_config | sed -n -e 's/^bindsym\s\(.\+\).*/\1/p' | rofi -dmenu -matching glob -i"
 
 bindsym $mod+s sticky toggle
 
