@@ -386,6 +386,7 @@ set $i3blocks $HOME/proj/i3blocks/i3blocks
 # }
 bar {
     output DP-1.1
+    output DP-0
     # output DP-1.2
     i3bar_command i3bar -t 0.7
     status_command $i3blocks -c $i3home/i3blocks.conf
