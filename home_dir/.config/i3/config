@@ -523,7 +523,7 @@ assign [class="Slack"] → $ws16
 # Scratchpad
 bindsym $mod+c exec "$scripts/toggle_scratchpad_title.sh SCRATCH"
 bindsym $mod+v exec "$scripts/toggle_scratchpad_title.sh VPN"
-for_window [title="SCRATCH"] move scratchpad, resize set 1300 800, floating enable, scratchpad show
+for_window [title="SCRATCH"] move scratchpad, resize set 800 600, floating enable, scratchpad show
 for_window [title="VPN"] move scratchpad, resize set 800 600, floating enable, scratchpad show
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
