@@ -34,4 +34,4 @@ export LANGUAGE=en_DE.UTF-8
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
-ssh-add ~/.ssh/github_personal
+eval "$(ssh-agent -s)"
