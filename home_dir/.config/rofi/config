@@ -282,4 +282,4 @@ rofi.combi-hide-mode-prefix:         true
 ! "Accept hovered row" Set from: Default
 ! rofi.me-accept-entry:                MouseDPrimary
 ! "Accept hovered row with custom action" Set from: Default
-rofi.theme: /usr/share/rofi/themes/android_notification.rasi
+rofi.theme: /home/i/.config/rofi/themes/cuts.rasi
