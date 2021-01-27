@@ -1,0 +1,6 @@
+alias ssl1="ssh milov@rackgateway -L 12001:rack1:22 -N"
+alias ssl2="ssh milov@rackgateway -L 12002:rack2:22 -N"
+alias ssf1="sshfs -o idmap=user milov@rack1:/home/milov ~/work/rack1"
+alias ssf2="sshfs -o idmap=user milov@rack2:/home/milov ~/work/rack2"
+alias rack1="ssh milov@rack1"
+alias rack2="ssh milov@rack2"

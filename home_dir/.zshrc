@@ -125,6 +125,7 @@ source $MY_ZSH/basic.zsh
 source $MY_ZSH/user_func.sh
 source $MY_ZSH/user_func.zsh
 source $MY_ZSH/aliases.zsh
+source $MY_ZSH/aliases_work.zsh
 ### fzf ###
 # preview
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || batcat --style=numbers --color=always {} || tree -C {}) 2> /dev/null | head -50'"
@@ -132,7 +133,7 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || batc
 # When using a custom FZF_CTRL_T_COMMAND, use the unexpanded $dir variable to make use of this feature. $dir defaults to . when the last token is not a valid directory.
 # set -g FZF_CTRL_T_COMMAND "command find -L \$dir 2> /dev/null | sed '1d; s#^\./##'"
 export FZF_CTRL_T_COMMAND='fdfind -H --type f --no-ignore-vcs'
-export FZF_ALT_C_COMMAND='fd -H'
+export FZF_ALT_C_COMMAND='fdfind -H'
 
 ### fzf END ###
 
