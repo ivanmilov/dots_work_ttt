@@ -521,7 +521,7 @@ assign [class="Evolution"] → $ws15
 assign [class="Slack"] → $ws16
 
 # Scratchpad
-bindsym $mod+c exec "$scripts/toggle_scratchpad_title.sh SCRATCH"
+bindsym $mod+grave exec "$scripts/toggle_scratchpad_title.sh SCRATCH"
 bindsym $mod+v exec "$scripts/toggle_scratchpad_title.sh VPN"
 for_window [title="SCRATCH"] move scratchpad, resize set 800 600, floating enable, scratchpad show
 for_window [title="VPN"] move scratchpad, resize set 800 600, floating enable, scratchpad show
