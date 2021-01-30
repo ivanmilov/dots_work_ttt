@@ -19,24 +19,26 @@ BAT_PRINT=$BAT_100
 
 minbatt="30"
 
+declare -i CURRENTLEVEL=0
+declare error=0
+
 GetLevel() {
 	device="MX Ergo"
 	# Get the current battery percentage info from solaar
 	battery=`solaar show "${device}"  2>/dev/null | grep Battery | cut -f 2 -d ":"`
-
+	
 	if [[ -z $battery ]]; then
-	    echo ﳠ
-	    echo ﳠ
-	    echo ""
-	    exit
+	    error=1
 	fi
 
 	# If it's unknown, it likely means it's offline and we can't do much
 	if [[ ${battery} =~ ^.*error.*$ ]]; then
-	    echo ﳠ
-	    echo ﳠ
-	    echo ""
-	    exit
+		error=1
+	fi
+
+	# If it's unknown, it likely means it's offline and we can't do much
+	if [[ ${battery} =~ ^.*unknown.*$ ]]; then
+		error=1
 	fi
 
 	# If we see recharging just set current_level, write logs/data and exit
@@ -56,11 +58,61 @@ GetLevel() {
 
 	echo "$current_level" > $mouse_battery_cache
 
-	echo $current_level
+	CURRENTLEVEL=$current_level
 }
 
 GetLevelFromCache() {
 	echo `cat $mouse_battery_cache`
+}
+
+EXIT_CODE=0
+
+print_battery_level(){
+	if [[ "${CURRENTLEVEL}" -eq "100" ]]; then
+		BAT_PRINT=$BAT_100
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "100" ]]; then
+		BAT_PRINT=$BAT_90
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "90" ]]; then
+		BAT_PRINT=$BAT_80
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "80" ]]; then
+		BAT_PRINT=$BAT_70
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "70" ]]; then
+		BAT_PRINT=$BAT_60
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "60" ]]; then
+		BAT_PRINT=$BAT_50
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "50" ]]; then
+		BAT_PRINT=$BAT_40
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "40" ]]; then
+		BAT_PRINT=$BAT_30
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "30" ]]; then
+		BAT_PRINT=$BAT_20
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "20" ]]; then
+		BAT_PRINT=$BAT_10
+	fi
+	if [[ "${CURRENTLEVEL}" -lt "10" ]]; then
+		BAT_PRINT=$BAT_ALERT
+	fi
+	if [[ "${CURRENTLEVEL}" -lt $minbatt ]]; then
+		EXIT_CODE=33
+	fi
+	if [[ "${CURRENTLEVEL}" -eq "Recharging" ]]; then
+		BAT_PRINT=$BAT_CH
+		EXIT_CODE=0
+	fi
+
+	echo $BAT_PRINT
+	echo $BAT_PRINT
+	echo ""
+	exit $EXIT_CODE
 }
 
 if [ "$BLOCK_BUTTON" == 1 ]; then
@@ -74,53 +126,13 @@ elif [ "$BLOCK_BUTTON" == 3 ]; then
 	# print icon from cache
 	CURRENTLEVEL=$(GetLevelFromCache)
 else
-	CURRENTLEVEL=$(GetLevel)
+	GetLevel
 fi
 
-EXIT_CODE=0
-
-if [[ "${CURRENTLEVEL}" -eq "100" ]]; then
-	BAT_PRINT=$BAT_100
+if [ "$error" == 0 ]; then
+	print_battery_level
+else
+		echo ﳠ
+	    echo ﳠ
+	    echo ""
 fi
-if [[ "${CURRENTLEVEL}" -lt "100" ]]; then
-	BAT_PRINT=$BAT_90
-fi
-if [[ "${CURRENTLEVEL}" -lt "90" ]]; then
-	BAT_PRINT=$BAT_80
-fi
-if [[ "${CURRENTLEVEL}" -lt "80" ]]; then
-	BAT_PRINT=$BAT_70
-fi
-if [[ "${CURRENTLEVEL}" -lt "70" ]]; then
-	BAT_PRINT=$BAT_60
-fi
-if [[ "${CURRENTLEVEL}" -lt "60" ]]; then
-	BAT_PRINT=$BAT_50
-fi
-if [[ "${CURRENTLEVEL}" -lt "50" ]]; then
-	BAT_PRINT=$BAT_40
-fi
-if [[ "${CURRENTLEVEL}" -lt "40" ]]; then
-	BAT_PRINT=$BAT_30
-fi
-if [[ "${CURRENTLEVEL}" -lt "30" ]]; then
-	BAT_PRINT=$BAT_20
-fi
-if [[ "${CURRENTLEVEL}" -lt "20" ]]; then
-	BAT_PRINT=$BAT_10
-fi
-if [[ "${CURRENTLEVEL}" -lt "10" ]]; then
-	BAT_PRINT=$BAT_ALERT
-fi
-if [[ "${CURRENTLEVEL}" -lt $minbatt ]]; then
-	EXIT_CODE=33
-fi
-if [[ "${CURRENTLEVEL}" -eq "Recharging" ]]; then
-	BAT_PRINT=$BAT_CH
-	EXIT_CODE=0
-fi
-
-echo $BAT_PRINT
-echo $BAT_PRINT
-echo ""
-exit $EXIT_CODE
