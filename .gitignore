@@ -26,6 +26,9 @@ home_dir/bin/*
 ## .config
 !home_dir/.config/
 
+# libinput gestures
+!/home_dir/.config/libinput-gestures.conf
+
 # alacritty
 !home_dir/.config/alacritty
 
