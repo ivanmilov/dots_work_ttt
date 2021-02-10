@@ -310,8 +310,8 @@ bindsym $mod+Ctrl+minus exec --no-startup-id compton-trans -c -5
 
 # Gaps mode
 set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_outer Outer Gaps: [+-0] (local), Shift + [+-0] (global)
+set $mode_gaps_inner Inner Gaps: [+-0] (local), Shift + [+-0] (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 bindsym $mod+plus  gaps inner all plus 5
