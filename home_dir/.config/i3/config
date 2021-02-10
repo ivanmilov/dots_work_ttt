@@ -501,6 +501,7 @@ exec_always --no-startup-id libinput-gestures-setup restart
 
 # set TrackPad acceleration and natural scrolling
 exec_always --no-startup-id xinput set-prop 'Apple Inc. Magic Trackpad 2' 'libinput Accel Speed' 0.4
+# exec_always --no-startup-id xinput set-prop 'Apple Inc. Magic Trackpad 2' 'libinput Natural Scrolling Enabled' 1
 
 exec_always --no-startup-id /home/i/.config/i3/i3_swallow.py
 
