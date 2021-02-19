@@ -360,6 +360,13 @@ bindsym ctrl+F1 exec "/usr/libexec/bmwrpp-detail-what-notify"
 
 bindsym $mod+b border toggle
 
+# swap and go 
+bindsym $mod+j mark "_swapee", focus left, swap with mark "_swapee", focus left, unmark "_swapee" 
+bindsym $mod+k mark "_swapee", focus right, swap with mark "_swapee", focus right, unmark "_swapee" 
+# swap and stay 
+bindsym $alt+j mark "_swapee", focus left, swap with mark "_swapee", unmark "_swapee" 
+bindsym $alt+k mark "_swapee", focus right, swap with mark "_swapee", unmark "_swapee" 
+
 # bindsym $alt+space exec --no-startup-id krunner
 
 # Start i3bar to display a workspace bar (plus the system information i3status
