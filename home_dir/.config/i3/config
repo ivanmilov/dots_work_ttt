@@ -567,3 +567,5 @@ exec --no-startup-id "$HOME/.config/i3/scripts/autolock.sh"
 popup_during_fullscreen smart
 
 # for_window [class="[.]*"] floating enable
+
+focus_wrapping no
