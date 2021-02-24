@@ -141,6 +141,7 @@ bindsym $mod+y focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+bindsym $mod+c focus child
 
 # open password menu
 bindsym $mod+p exec --no-startup-id "$HOME/.config/i3/scripts/pss.sh"
