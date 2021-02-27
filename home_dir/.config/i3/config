@@ -133,8 +133,8 @@ bindsym $mod+w layout toggle tabbed stacked split           # toggle: tabbed sta
 bindsym $mod+e layout toggle splitv splith                  # toggle: splitv splith
 
 # toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
-bindsym --whole-window $mod+button2 floating toggle
+bindsym $mod+Shift+f floating toggle, resize set 1280 720, move position center
+bindsym --whole-window $mod+button2 floating toggle, resize set 1280 720, move position center
 
 # change focus between tiling / floating windows
 bindsym $mod+y focus mode_toggle
