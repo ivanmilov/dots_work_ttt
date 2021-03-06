@@ -24,6 +24,7 @@ git-crypt status -e
 * [alacritty](https://github.com/alacritty/alacritty)
 * [autotiling](https://github.com/nwg-piotr/autotiling)
 * [i3bloks](https://github.com/ivanmilov/i3blocks)
+* [i3icons](https://github.com/nwhirschfeld/i3icons2)
 * [picom](https://github.com/yshui/picom)
 * [playerctl](https://github.com/altdesktop/playerctl)
 * [spotify_remote](https://github.com/ivanmilov/spotify_remote) for media blocks

@@ -44,5 +44,8 @@ home_dir/bin/*
 # rofi
 !home_dir/.config/rofi
 
+# i3icons
+!home_dir/.config/i3icons
+
 # wall
 !home_dir/wall
