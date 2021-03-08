@@ -516,8 +516,8 @@ exec_always --no-startup-id xinput set-prop 'Apple Inc. Magic Trackpad 2' 'libin
 
 exec_always --no-startup-id /home/i/.config/i3/i3_swallow.py
 
-set $i3icons "/home/i/proj/i3icons2_my/bin/i3icons2"
-exec_always --no-startup-id killall i3icons2 && $i3icons || $i3icons
+# https://github.com/nwhirschfeld/i3icons2
+exec_always --no-startup-id killall i3icons && i3icons || i3icons
 
 # xprop to find window information
 
