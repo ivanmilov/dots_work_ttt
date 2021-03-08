@@ -58,15 +58,11 @@ my $artist = qx(playerctl $player_arg metadata artist 2>/dev/null);
 
 # trim newline
 $artist =~ s/\n+$//;
-# & -> anD
-$artist =~ s/&/&amp;/;
 # exit status will be nonzero when playerctl cannot find your player
 # exit(0) if $?;
 push(@metadata, $artist) if $artist;
 
 my $title = qx(playerctl $player_arg metadata title 2>/dev/null);
-# & -> anD
-$title =~ s/&/&amp;/;
 # exit(0) if $?;
 push(@metadata, $title) if $title;
 

@@ -86,5 +86,5 @@ else
 	out=$(echo "$current_artists - $current_song [$current_device $current_device_type 奄$current_device_volume]" | tr -d '"')
 fi
 
-echo $out | sed 's/&/&amp;/g'
-echo $out | sed 's/&/&amp;/g'
+echo $out
+echo $out
