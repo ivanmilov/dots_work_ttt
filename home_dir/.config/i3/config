@@ -49,7 +49,7 @@ workspace_auto_back_and_forth yes
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
 
-bindsym $mod+g exec --no-startup-id libinput-gestures-setup restart
+bindsym $mod+$alt+g exec --no-startup-id libinput-gestures-setup restart
 
 bindsym Ctrl+Print exec --no-startup-id flameshot gui
 
@@ -361,12 +361,16 @@ bindsym ctrl+F1 exec "/usr/libexec/bmwrpp-detail-what-notify"
 
 bindsym $mod+b border toggle
 
-# swap and go 
-bindsym $mod+j mark "_swapee", focus left, swap with mark "_swapee", focus left, unmark "_swapee" 
-bindsym $mod+k mark "_swapee", focus right, swap with mark "_swapee", focus right, unmark "_swapee" 
-# swap and stay 
-bindsym $alt+j mark "_swapee", focus left, swap with mark "_swapee", unmark "_swapee" 
-bindsym $alt+k mark "_swapee", focus right, swap with mark "_swapee", unmark "_swapee" 
+# swap and go
+bindsym $mod+j mark "_swapee", focus left, swap with mark "_swapee", focus left, unmark "_swapee"
+bindsym $mod+k mark "_swapee", focus right, swap with mark "_swapee", focus right, unmark "_swapee"
+# swap and stay
+bindsym $alt+j mark "_swapee", focus left, swap with mark "_swapee", unmark "_swapee"
+bindsym $alt+k mark "_swapee", focus right, swap with mark "_swapee", unmark "_swapee"
+
+# swap with widest
+bindsym $mod+g exec --no-startup-id "swap_biggest -b"
+
 
 # bindsym $alt+space exec --no-startup-id krunner
 
