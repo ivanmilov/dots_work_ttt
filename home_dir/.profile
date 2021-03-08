@@ -34,4 +34,7 @@ export LANGUAGE=en_DE.UTF-8
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
+export PATH=$PATH:$HOME/.local/bin/go/bin
+export GOBIN=$HOME/bin
+
 eval "$(ssh-agent -s)"
