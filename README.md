@@ -30,7 +30,10 @@ git-crypt status -e
 * [spotify_remote](https://github.com/ivanmilov/spotify_remote) for media blocks
 * [telegram_test_message_bot](https://github.com/ivanmilov/telegram_test_message_bot) for timer block
 * [xkblayout-state](https://github.com/nonpop/xkblayout-state) for lock.sh
-* [xtitle](https://github.com/baskerville/xtitle) for current window title
+* ~~[xtitle](https://github.com/baskerville/xtitle) for current window title~~
+* [i3title](https://github.com/ivanmilov/i3title) for current window title
+* [i3icons](https://github.com/ivanmilov/i3icons2) go version of i3icons
+* [i3_swap_biggest](https://github.com/ivanmilov/i3_swap_biggest) swap current window with biggest one on current workspace
 * fonts
   * [FiraCode](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
   * [MesloLGS](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) for zsh
