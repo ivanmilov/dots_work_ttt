@@ -2,6 +2,7 @@
 home_dir/*
 home_dir/.config/*
 /**/*.ignore
+/**/.vscode
 
 # Except for
 
