@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# kill first argument app
+while [ ! -z "$(pidof $1)" ];
+do
+	killall $1
+	sleep 0.5
+done
+
+# run app with all arguments
+"$@" &

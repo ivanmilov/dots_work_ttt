@@ -22,6 +22,7 @@ home_dir/bin/*
 !home_dir/bin/
 !home_dir/bin/c++
 !home_dir/bin/vpn
+!home_dir/bin/kill_and_run
 
 ## .config
 !home_dir/.config/
