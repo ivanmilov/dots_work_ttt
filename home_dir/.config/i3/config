@@ -520,7 +520,7 @@ exec_always --no-startup-id xinput set-prop 'Apple Inc. Magic Trackpad 2' 'libin
 exec_always --no-startup-id /home/i/.config/i3/i3_swallow.py
 
 # https://github.com/nwhirschfeld/i3icons2
-exec_always --no-startup-id killall i3icons && i3icons || i3icons
+exec_always --no-startup-id kill_and_run i3icons
 
 # https://github.com/erebe/greenclip
 exec_always --no-startup-id kill_and_run greenclip daemon
