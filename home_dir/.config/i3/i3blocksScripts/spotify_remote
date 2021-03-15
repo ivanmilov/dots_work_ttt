@@ -14,7 +14,7 @@ set_wall()
 	if [ $is_local = true ]; then
 		feh --bg-scale $w;
 	else
-		$SPOTIFY_WALL "$WALL" "$w" 
+		$SPOTIFY_WALL "$WALL" "$w"
 	fi
 	echo $w > $CUR_WALL
 }
