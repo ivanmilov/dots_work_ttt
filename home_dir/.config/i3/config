@@ -513,7 +513,8 @@ for_window [class="krunner"] move position center
 exec_always --no-startup-id feh --bg-scale ~/wall/wall.jpg
 
 # https://github.com/nwg-piotr/autotiling
-exec_always --no-startup-id /home/i/.local/bin/autotiling
+# exec_always --no-startup-id /home/i/.local/bin/autotiling
+exec_always --no-startup-id kill_and_run i3autotiling
 
 exec_once --no-startup-id $compton
 
