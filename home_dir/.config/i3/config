@@ -116,6 +116,12 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# chose a place for next window to open
+bindsym $mod+Ctrl+Shift+Left "open, move left"
+bindsym $mod+Ctrl+Shift+Right "open"
+bindsym $mod+Ctrl+Shift+Up "open, move up"
+bindsym $mod+Ctrl+Shift+Down "open, move down"
+
 # split in horizontal orientation
 # bindsym $mod+h split h
 
