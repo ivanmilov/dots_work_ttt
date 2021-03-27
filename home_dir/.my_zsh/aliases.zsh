@@ -1,4 +1,5 @@
-alias ll="ls -lah"
+# alias ll="ls -lah"
+alias ll="exa -lah --icons --git"
 alias gg="git gui &"
 alias gs="git status"
 alias gti="git"
