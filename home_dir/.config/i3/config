@@ -90,9 +90,12 @@ bindsym $mod+Shift+d exec $filebrowser ~/Downloads
 bindsym $mod+i exec --no-startup-id $term -e 'htop'
 
 # start dmenu (a program launcher)
-bindsym $mod+Ctrl+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+Ctrl+d exec --no-startup-id i3-dmenu-desktop
 # bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,window,windowcd -show combi -modi combi"
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi -matching fuzzy"
+# https://github.com/svenstaro/rofi-calc
+bindsym $mod+Ctrl+d exec --no-startup-id "rofi -plugin-path ~/proj/rofi-calc/build/.libs -show calc -modi calc -no-show-match -no-sort"
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.

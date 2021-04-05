@@ -35,6 +35,7 @@ git-crypt status -e
 * [i3icons](https://github.com/ivanmilov/i3icons2) go version of i3icons
 * [i3_swap_biggest](https://github.com/ivanmilov/i3_swap_biggest) swap current window with biggest one on current workspace
 * [greenclip](https://github.com/erebe/greenclip) clipboard manager
+* [rofi-calc](https://github.com/svenstaro/rofi-calc) Do live calculations in rofi
 * fonts
   * [FiraCode](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
   * [MesloLGS](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) for zsh
