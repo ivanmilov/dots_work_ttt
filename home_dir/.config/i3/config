@@ -23,7 +23,7 @@ set $filebrowser dolphin
 
 set $borderW pixel 0
 
-set $compton "compton --config /home/i/.config/i3/compton.conf"
+set $picom-trans "/home/i/proj/picom/bin/picom-trans"
 set $picom "/home/i/proj/picom/build/src/picom --config /home/i/.config/i3/picom.conf"
 set $picom_lite "/home/i/proj/picom/build/src/picom --config /home/i/.config/i3/picom_lite.conf"
 set $picom_raw "/home/i/proj/picom/build/src/picom --corner-radius 15 --vsync"
@@ -301,12 +301,10 @@ set $mode_compton compton: k -> kill; Run: c -> compton; p -> picom; l -> picom 
 bindsym $mod+$alt+c mode "$mode_compton"
 mode "$mode_compton" {
         bindsym k       exec --no-startup-id killall compton || killall picom
-        bindsym c       exec --no-startup-id $compton; mode "default"
         bindsym p       exec --no-startup-id $picom; mode "default"
         bindsym l       exec --no-startup-id $picom_lite; mode "default"
         bindsym o       exec --no-startup-id $picom_origin_lite; mode "default"
         bindsym Shift+o exec --no-startup-id $picom_origin; mode "default"
-        bindsym Shift+c exec --no-startup-id compton; mode "default"
         bindsym Shift+p exec --no-startup-id $picom_raw; mode "default"
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -317,8 +315,9 @@ bindsym $mod+Shift+F1 exec terminator
 bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
 
-bindsym $mod+Ctrl+plus exec --no-startup-id compton-trans -c +5
-bindsym $mod+Ctrl+minus exec --no-startup-id compton-trans -c -5
+bindsym $mod+Ctrl+plus exec --no-startup-id $picom-trans -c +5
+bindsym $mod+Ctrl+minus exec --no-startup-id $picom-trans -c -5
+bindsym $mod+Ctrl+r  exec --no-startup-id $picom-trans -c -r
 
 # Gaps mode
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -519,7 +518,7 @@ exec_always --no-startup-id feh --bg-scale ~/wall/wall.jpg
 # exec_always --no-startup-id /home/i/.local/bin/autotiling
 exec_always --no-startup-id kill_and_run i3autotiling
 
-exec_once --no-startup-id $compton
+exec_once --no-startup-id $picom_lite
 
 exec_always --no-startup-id libinput-gestures-setup restart
 
