@@ -28,6 +28,9 @@ home_dir/bin/*
 ## .config
 !home_dir/.config/
 
+# redshift
+!/home_dir/.config/redshift.conf
+
 # libinput gestures
 !/home_dir/.config/libinput-gestures.conf
 
