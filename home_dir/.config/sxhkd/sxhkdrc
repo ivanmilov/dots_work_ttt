@@ -9,9 +9,9 @@ super + Return
 	alacritty
 
 # program launcher
-super + @space
-	dmenu_run
-	
+# super + @space
+# 	dmenu_run
+
 # program launcher rofi
 super + d
 	rofi -combi-modi window,drun -show combi -modi combi -matching fuzzy
@@ -37,11 +37,11 @@ ctrl + Print
 	flameshot gui
 
 # https://github.com/svenstaro/rofi-calc
-super + ctrl + d 
+super + ctrl + d
 	rofi -plugin-path ~/proj/rofi-calc/build/.libs -show calc -modi calc -no-show-match -no-sort
 
 # lock screen
-super + shift + l 
+super + shift + l
 	~/.config/i3/scripts/lock.sh
 
 # picom transparency change
@@ -130,24 +130,24 @@ super + {o,i}polybar do not show empty workspaces
 super + {_,shift + }{1-9,0}
 	SEL={'desktop -f','node -d'}; \
 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
-	bspc `echo $SEL` '{1-9,10}' $FOLLOW 
+	bspc `echo $SEL` '{1-9,10}' $FOLLOW
 
 super + alt + {_,shift} + {1-9}
 	SEL={'desktop -f','node -d'}; \
 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
-	bspc `echo $SEL` 1{1-9} $FOLLOW 
+	bspc `echo $SEL` 1{1-9} $FOLLOW
 
 super + alt + {_,shift} + 0
 	SEL={'desktop -f','node -d'}; \
 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
-	bspc `echo $SEL` 20 $FOLLOW 
+	bspc `echo $SEL` 20 $FOLLOW
 
 # open/move_to next new desktop
 super + {_, shift} + n
 	SEL={'desktop -f','node -d'}; \
 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
 	bspc `echo $SEL` any.local.\!occupied $FOLLOW || \
-	bspc `echo $SEL` any.\!occupied $FOLLOW 
+	bspc `echo $SEL` any.\!occupied $FOLLOW
 
 #move desktop to monitor
 super + alt + {Left,Right}
@@ -230,9 +230,9 @@ super + k
 	# bspc node -f @parent; \
 	# bspc desktop -B
 	# bspc node -f @parent; bspc node -F horizontal
-	# pkill sxhkd ; sleep 4; /usr/local/bin/sxhkd -r ~/tmp/sx.out 
+	# pkill sxhkd ; sleep 4; /usr/local/bin/sxhkd -r ~/tmp/sx.out
 
-# super + ctrl + minus 
+# super + ctrl + minus
 # 	/home/i/proj/picom/bin/picom-trans -c -5
 
 # super + ctrl + r
