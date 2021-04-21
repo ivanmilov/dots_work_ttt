@@ -194,6 +194,10 @@ super + w; r
 	child=$(tabc.sh list $tabbed | head -n1); \
 	tabc.sh remove $child
 
+# Move all windows to new tabbed
+super + w; a
+	tabc.sh all
+
 # Clear urgent flag from node
 super + w; u
 	xdotool set_window --urgency 0 $(bspc query -N -n focused)
