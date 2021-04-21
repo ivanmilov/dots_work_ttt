@@ -25,6 +25,7 @@ home_dir/bin/*
 !home_dir/bin/vpn
 !home_dir/bin/kill_and_run
 !home_dir/bin/tabc.sh
+!home_dir/bin/bspwm_unurgent_on_active_desktop.sh
 
 ## .config
 !home_dir/.config/

@@ -4,10 +4,13 @@ wmctrl -c Plasma
 # pgrep -x dxhd > /dev/null || /usr/bin/dxhd &
 pgrep -x sxhkd > /dev/null || /usr/local/bin/sxhkd &
 
+# drop the 'urgent' flag on 'focus' event
+pgrep -f bspwm_unurgent_on_active_desktop.sh > /dev/null || bspwm_unurgent_on_active_desktop.sh & > /dev/null
+
 greenclip daemon &
 
 bspc monitor %DP-1.1 -d 1 2 3 4 5 6 7 8 9 10
-bspc monitor %DP-1.2 -d 11 12 13 14 15 16 17 18 19 
+bspc monitor %DP-1.2 -d 11 12 13 14 15 16 17 18 19
 
 bspc config border_width         2
 bspc config window_gap           12
