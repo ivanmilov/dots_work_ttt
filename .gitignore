@@ -3,6 +3,7 @@
 /**/*.ignore
 home_dir/*
 home_dir/.config/*
+home_dir/.config/polybar/*
 home_dir/bin/*
 
 # Except for:
@@ -41,6 +42,10 @@ home_dir/bin/*
 
 # set wm
 !home_dir/.config/plasma-workspace
+
+# Polybar
+!home_dir/.config/polybar
+!home_dir/.config/polybar/my
 
 # redshift
 !home_dir/.config/redshift.conf
