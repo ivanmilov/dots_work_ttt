@@ -69,6 +69,7 @@
         "sun-awt-x11-xframepeer": "",
         "systemsettings": "",
         "telegramdesktop": "",
+        "terminator": "",
         "termite": "",
         "texstudio": "",
         "thunar": "",
@@ -84,6 +85,7 @@
         "zotero": ""
     },
     "ignore": [
-        "plasmashell"
+        "plasmashell",
+        "kioclient"
     ]
 }
