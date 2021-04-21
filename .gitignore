@@ -43,6 +43,12 @@ home_dir/bin/*
 # i3
 !home_dir/.config/i3/
 
+# bspwm
+!home_dir/.config/bspwm/
+
+# sxhkd
+!home_dir/.config/sxhkd/
+
 # set wm
 !home_dir/.config/plasma-workspace
 
