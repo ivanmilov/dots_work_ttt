@@ -181,6 +181,24 @@ super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
+# Tabbed
+#
+
+# Add window to tabbed
+super + w; {Left,Down,Up,Right}
+	tabc.sh add {west,south,north,east} $(bspc query -N -n focused)
+
+# Remove window from tabbed
+super + w; r
+	tabbed=$(bspc query -N -n focused); \
+	child=$(tabc.sh list $tabbed | head -n1); \
+	tabc.sh remove $child
+
+# Clear urgent flag from node
+super + w; u
+	xdotool set_window --urgency 0 $(bspc query -N -n focused)
+
+#
 # move/resize
 #
 
@@ -209,15 +227,6 @@ super + k
 	# bspc desktop -B
 	# bspc node -f @parent; bspc node -F horizontal
 	# pkill sxhkd ; sleep 4; /usr/local/bin/sxhkd -r ~/tmp/sx.out 
-
-super + w; {Left,Down,Up,Right}
-	tabc.sh add {west,south,north,east} $(bspc query -N -n focused)
-	# echo "huyhy" {west,south,north,east}; 
-
-super + w; r
-	tabbed=$(bspc query -N -n focused); \
-	child=$(tabc.sh list $tabbed | head -n1); \
-	tabc.sh remove $child
 
 # super + ctrl + minus 
 # 	/home/i/proj/picom/bin/picom-trans -c -5
