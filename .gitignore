@@ -1,43 +1,31 @@
 # Ignore everything:
+/**/.vscode
+/**/*.ignore
 home_dir/*
 home_dir/.config/*
-/**/*.ignore
-/**/.vscode
+home_dir/bin/*
 
-# Except for
+# Except for:
 
-# home
+## home
 !home_dir
+!home_dir/.bazelrc
 !home_dir/.gitconfig
 !home_dir/.profile
 
-# bazel
-!home_dir/.bazelrc
-
 # zsh
-!home_dir/.zshrc
 !home_dir/.my_zsh/
+!home_dir/.zshrc
 
-# ~/bin
-home_dir/bin/*
-!home_dir/bin/
-!home_dir/bin/c++
-!home_dir/bin/vpn
-!home_dir/bin/kill_and_run
-!home_dir/bin/tabc.sh
-!home_dir/bin/bspwm_unurgent_on_active_desktop.sh
 
 ## .config
 !home_dir/.config/
 
-# redshift
-!/home_dir/.config/redshift.conf
-
-# libinput gestures
-!/home_dir/.config/libinput-gestures.conf
-
 # alacritty
 !home_dir/.config/alacritty
+
+# bspwm
+!home_dir/.config/bspwm/
 
 # htop
 !home_dir/.config/htop
@@ -45,20 +33,32 @@ home_dir/bin/*
 # i3
 !home_dir/.config/i3/
 
-# bspwm
-!home_dir/.config/bspwm/
+# i3icons
+!home_dir/.config/i3icons
 
-# sxhkd
-!home_dir/.config/sxhkd/
+# libinput gestures
+!home_dir/.config/libinput-gestures.conf
 
 # set wm
 !home_dir/.config/plasma-workspace
 
+# redshift
+!home_dir/.config/redshift.conf
+
 # rofi
 !home_dir/.config/rofi
 
-# i3icons
-!home_dir/.config/i3icons
+# sxhkd
+!home_dir/.config/sxhkd/
+
+# bin
+!home_dir/bin/
+!home_dir/bin/bspwm_unurgent_on_active_desktop.sh
+!home_dir/bin/c++
+!home_dir/bin/kill_and_run
+!home_dir/bin/tabc.sh
+!home_dir/bin/vpn
 
 # wall
 !home_dir/wall
+
