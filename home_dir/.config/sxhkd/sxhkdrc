@@ -84,11 +84,11 @@ super + g
 # state/flags
 #
 
-# set/toggle the window state(tiled,pseudo_tiled,floating,fullscreen)
+# switch (tiled,pseudo_tiled,floating,fullscreen)
 super + {t,shift + t,s,f}
 	bspc node -t {\~tiled,\~pseudo_tiled,\~floating,\~fullscreen}
 
-# set the node flags
+# set the node (marked,locked,sticky,private)
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
