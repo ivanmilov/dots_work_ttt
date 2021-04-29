@@ -114,17 +114,11 @@ ctrl + alt + {Left,Right}
 
 # focus the last node/desktop
 super + {grave,Tab}
-	bspc {node,desktop} -f last
+	bspc {node,desktop} -f older{.local,_}
 
 # move node to last desktop
 super + shift + Tab
-	bspc node -d last -f
-
-# focus the older or newer node in the focus history
-super + {o,i}polybar do not show empty workspaces
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
+	bspc node -d older -f
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
