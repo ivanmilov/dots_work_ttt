@@ -1,0 +1,148 @@
+#!/bin/bash
+
+set -e
+
+zfile=`dirname $0`/zzz.ignore
+msgfile=`dirname $0`/zmsg.ignore
+
+setup_window () {
+    RETURNVALUE=`zenity --forms --title "Set timer" --text  "Set timer" \
+--add-entry "Enter minutes" \
+--add-entry="Message"`
+
+    # extract the time and message values
+    min=$(awk -F'|' '{print $1}' <<<$RETURNVALUE);
+    msg=$(awk -F'|' '{print $2}' <<<$RETURNVALUE);
+
+    [[ -z $min ]] && exit 1
+
+    [[ -z $msg ]] && msg="Timer!"
+    echo $msg>$msgfile
+
+    min=$(( $min*60 ))
+    now=`date +%s`
+    echo "$(( $min + $now ))"
+}
+
+# e.g. 16:50
+setup_window_time () {
+    RETURNVALUE=`zenity --forms --title "Set timer" --text  "Set timer" \
+--add-entry "Enter exact time" \
+--add-entry="Message"`
+
+    # extract the time and message values
+    min=$(awk -F'|' '{print $1}' <<<$RETURNVALUE);
+    msg=$(awk -F'|' '{print $2}' <<<$RETURNVALUE);
+
+    [[ -z $min ]] && exit 1
+
+    [[ -z $msg ]] && msg="Timer!"
+    echo $msg>$msgfile
+
+    # convert
+    min=`date --date=$min +%s`
+    echo $min
+}
+
+done_window () {
+    if [ -f $msgfile ]; then
+        msg=`cat $msgfile`
+    else
+        msg="Timer!"
+    fi
+    # cd /home/i/proj/telegram_test_message_bot
+    /home/i/proj/telegram_test_message_bot/send_msg.sh "$msg"
+    # paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
+    zenity --info --width=500 --height=250 --ellipsize --text "$msg"
+}
+
+fix_digits () {
+    digit=$1
+    chrlen=${#digit}
+    if [ $chrlen -eq 1 ]; then
+        digit="0"$digit
+    fi
+    echo "$digit"
+}
+
+print_elapsed () {
+    ELAPSE=$1                                             # compute elapsed time in seconds
+    HOURS=$(( $ELAPSE/60/60 ))
+    MINS=$(( $ELAPSE/60 - ($HOURS*60) ))                  # convert to minutes... (dumps remainder from division)
+    SECS=$(( $ELAPSE - ($MINS*60) - ($HOURS*60*60) ))     # ... and seconds
+    NC='\033[0m' # No Color
+
+    if [ $HOURS -gt 0 ]; then
+        MINS=$( fix_digits $MINS )
+        SECS=$( fix_digits $SECS )
+        out=`echo "$HOURS:$MINS:$SECS"`
+    elif [ $MINS -gt 0 ]; then
+        SECS=$( fix_digits $SECS )
+        out=`echo "$MINS:$SECS"`
+    elif [[ condition ]]; then
+        out=`echo "$SECS"`
+    fi
+
+    colorise $ELAPSE $out
+}
+
+colorise () {
+    min=$1
+    warn=300
+    crit=60
+    warnCol="#fafac7"
+    critCol="#e23c3c"
+    if [ $min -le $crit ]; then
+        echo "%{B$critCol}%{F#000000} $2 %{F- B-}"
+    elif [ $min -lt $warn ]; then
+        echo "%{B$warnCol}%{F#000000} $2 %{F- B-}"
+    else
+        echo $2
+    fi
+}
+
+reset () {
+    rm "$zfile"
+    rm "$msgfile"
+}
+
+NAME=":"
+
+case $1 in
+    "test")
+        min=$( setup_window_time )
+        echo $min
+        echo `date +%s`
+        ;;
+    "timer")
+        min=$( setup_window )
+        echo $min>$zfile
+        ;;
+    "time")
+        min=$( setup_window_time )
+        echo $min>$zfile
+        ;;
+    "reset")
+        reset
+        ;;
+esac
+
+if [ ! -f $zfile ]; then
+    echo $NAME
+    exit
+fi
+
+[[ -s $zfile ]] && min=`cat $zfile` || min=0
+now=`date +%s`
+
+if [ $min -gt $now ]; then
+    print_elapsed $(( $min - $now))
+else
+    if [ $min -eq 0 ]; then
+        echo $NAME
+    else
+        echo DONE
+        done_window
+        reset
+    fi
+fi
