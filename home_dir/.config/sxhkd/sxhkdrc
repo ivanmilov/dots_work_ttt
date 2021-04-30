@@ -114,7 +114,9 @@ ctrl + alt + {Left,Right}
 
 # focus the last node/desktop
 super + {grave,Tab}
-	bspc {node,desktop} -f older{.local,_}
+	SEL={node,desktop}; \
+	[[ $SEL == "node" ]] && PARAM=".local"; \
+	bspc $SEL -f older$PARAM
 
 # move node to last desktop
 super + shift + Tab
