@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+TOP=$(top -bn1 -o %CPU  U i  -w 200| sed -n '/USER/{n;p;}' )
+
+PID=$( echo ${TOP} | awk '{ printf("%s", ""$1""); }')
+CPU=$( echo ${TOP} | awk '{ printf("%s",""$9""); }' | cut -f1 -d".")
+PROC=$(echo ${TOP} | awk '{ printf("%s",""$12""); }')
+
+if [ "$1" == "kill" ]; then
+  bkill=$(zenity --question --text "Kill this shit?\n$PROC\nPID: $PID"; echo $?)
+  if [ $bkill -eq 0 ]; then
+  	kill -9 $PID
+  fi
+fi
+
+out=$(echo $CPU $PROC)
+
+if [[ $CPU -ge 50 ]]; then
+    out=$(echo "%{B#00FF00}%{F#000} $out %{F- B-}")
+else
+    out=$(echo "%{B#00000050}%{F#555} $out %{F- B-}")
+fi
+
+echo "$out"
