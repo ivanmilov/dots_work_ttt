@@ -1,0 +1,32 @@
+#!/bin/bash
+
+declare -a ARR=(
+    "tiled     Default bspwm's tiled layout|tiled"
+    "tall      Master-stack with a tall window.|tall"
+    "rtall     Master-stack with a reversed tall window.|rtall"
+    "wide      Master-stack with a wide window.|wide"
+    "rwide     Master-stack with a reversed wide window.|rwide"
+    "grid      Horizontal grid layout|grid"
+    "rgrid     Vertical grid layout|rgrid"
+    "even      Evenly balances all window areas|even"
+    "monocle   Default bspwm's monocle layout|monocle"
+)
+
+for ckey in "${ARR[@]}"; do
+  key=${ckey%|*}
+  options=$options$key$'\n'
+done
+
+# sed '$d' () $ represents the last line of the file, and d deletes it)
+index=$(echo "$options" | sed '$d' | rofi -dmenu -format i )
+
+[ -z $index ] && exit 0;
+
+val_at_index=`echo "${ARR[$index]}"`
+value=${val_at_index#*|}
+
+action="once"
+
+[[ "$1" == "set" ]] && action="set"
+
+bsp-layout "$action" "$value"

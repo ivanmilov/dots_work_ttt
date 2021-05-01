@@ -40,11 +40,12 @@ bspc config -m  %DP-1.1 top_padding 24
 bspc config -m  %DP-1.2 top_padding 0
 bspc config bottom_padding 27
 
-bspc rule -a "Desktop — Plasma" kill state=floating focus=off
+bspc rule -a "Desktop — Plasma" state=floating focus=off
 bspc rule -a "apport-kde" state=floating focus=off
 bspc rule -a plasmashell state=floating focus=off
 bspc rule -a TelegramDesktop desktop='19' follow=on
 bspc rule -a Zenity state=floating
+bspc rule -a HELP state=floating
 # bspc rule -a Gimp desktop='^8' state=floating follow=on
 # bspc rule -a Chromium desktop='^2'
 # bspc rule -a mplayer2 state=floating

@@ -20,9 +20,13 @@ super + d
 super + Escape
 	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config' &
 
-# show help s
-super + h
+# show help
+super + h; s
 	~/.config/sxhkd/sxhkd_help.sh
+
+# show layout help
+super + h; l
+	alacritty --class HELP,HELP -e less ~/.config/bspwm/scripts/bsp_layout_switcher_help.txt
 
 # htop
 super + i
@@ -52,7 +56,7 @@ super + ctrl + {equal,minus,r}
 super + p
 	/home/i/.config/i3/scripts/pss.sh
 
-#Clipboard manager
+# Clipboard manager
 ctrl + alt + c
 	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
@@ -79,6 +83,11 @@ super + y
 # swap the current node and the biggest window
 super + g
 	bspc node -s biggest.window.local || bspc node -s last.local
+	# ~/.config/bspwm/scripts/swap_biggest.sh
+
+# bsp_layout_swither (super + h; l) for help
+super + {_,alt +} l
+	bsp_layout_switcher {"",set}
 
 #
 # state/flags

@@ -1,0 +1,42 @@
+
+tall - Master-stack with a tall window.    rtall - reversed tall window.
+_______________                            _______________
+|        |____|                            |____|        |
+|        |____|                            |____|        |
+|        |____|                            |____|        |
+|________|____|                            |____|________|
+
+wide - Master-stack with a wide window.    rwide - reversed wide window.
+_______________                            _______________
+|             |                            |____|____|___|
+|             |                            |             |
+|_____________|                            |             |
+|____|____|___|                            |_____________|
+
+grid - Horizontal grid layout              rgrid - Vertical grid layout
+_____________                              _____________
+|   |   |   |                              |_____|_____|
+|___|___|___|                              |_____|_____|
+|   |   |   |                              |_____|_____|
+|___|___|___|
+
+even - Evenly balances all window areas
+_______________         _______________
+|___|____|____|         |    |        |
+|___|____|____|   OR    |    |________|
+|___|____|____|         |    |        |
+                        |____|________|
+
+tiled - Default bspwm's tiled layout
+_______________
+|        |    |
+|        |____|
+|        |  | |
+|________|__|_|
+
+monocle - Default bspwm's monocle layout
+_______________
+|             |
+|             |
+|             |
+|_____________|

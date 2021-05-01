@@ -23,6 +23,9 @@ git-crypt status -e
 ## Addons
 * [alacritty](https://github.com/alacritty/alacritty)
 * [autotiling](https://github.com/nwg-piotr/autotiling)
+* [bspwm](https://github.com/baskerville/bspwm)
+* [sxhkd](https://github.com/baskerville/sxhkd)
+* [bsp-layout](https://github.com/phenax/bsp-layout)
 * [i3bloks](https://github.com/ivanmilov/i3blocks)
 * [i3icons](https://github.com/nwhirschfeld/i3icons2)
 * [picom](https://github.com/yshui/picom)
@@ -51,3 +54,7 @@ git-crypt status -e
   * [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
 * theme
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
+
+## Useful BSPWM repos:
+* A lot of scripts for dynamic window managing: [protesilaos](https://gitlab.com/protesilaos/dotfiles/-/tree/v2.2.0/). [sxhkdrc_bspc](https://gitlab.com/protesilaos/dotfiles/-/blob/v2.2.0/bspwm/.config/sxhkd/sxhkdrc_bspc), [bin](https://gitlab.com/protesilaos/dotfiles/-/tree/v2.2.0/bin/bin)
