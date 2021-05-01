@@ -97,8 +97,36 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus/swap the node in the given direction
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
+# super + {_,shift + }{Left,Down,Up,Right}
+# 	bspc node -{f,s} {west,south,north,east}
+
+super + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
+
+
+# Swap focused window with the one in the given direction.  If there is
+# no window in that direction, a receptacle will be created.  Inputting
+# any direction again will move the focused window to the position of
+# the receptacle.  This will effectively remove it from the current
+# layout, creating a more fluid workflow that does not constrain you to
+# the tree of the tiling scheme.
+#
+# IF you only ever want to move a window into an existing one and avoid
+# the added features of the scripted behaviour, use the following
+# command instead:
+#
+# 	bspc node -s {west,south,north,east}
+#
+# TIP after breaking free from the layout, you can use --balance to
+# spread out the nodes (see the key chord further down).  You may also
+# --rotate the tree.
+#
+# bspwm_smart_move is part of my dotfiles (link in the description).
+super + shift + {Left,Down,Up,Right}
+	bspwm_smart_move {west,south,north,east}
+
+
+
 
 # focus the node for the given path jump
 # super + {p,b,comma,period}
