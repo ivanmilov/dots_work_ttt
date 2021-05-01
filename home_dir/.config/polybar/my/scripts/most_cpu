@@ -15,10 +15,13 @@ fi
 
 out=$(echo $CPU $PROC)
 
+declare -r urgent=#00FF00
+declare -r normal=#555
+
 if [[ $CPU -ge 50 ]]; then
-    out=$(echo "%{B#00FF00}%{F#000} $out %{F- B-}")
+    out=$(echo "%{F$urgent} $out %{F-}")
 else
-    out=$(echo "%{B#00000050}%{F#555} $out %{F- B-}")
+    out=$(echo "%{F$normal} $out %{F-}")
 fi
 
 echo "$out"
