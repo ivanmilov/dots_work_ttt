@@ -1,5 +1,7 @@
 #! /bin/sh
 
+PATH=$PATH:/home/i/.config/bspwm/scripts; export PATH;
+
 wmctrl -c Plasma
 pgrep -x sxhkd > /dev/null || /usr/local/bin/sxhkd -t 1 &
 
