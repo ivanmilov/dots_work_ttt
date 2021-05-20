@@ -56,6 +56,9 @@ home_dir/bin/*
 # sxhkd
 !home_dir/.config/sxhkd/
 
+# dxhd
+!home_dir/.config/dxhd/
+
 # bin
 !home_dir/bin/
 !home_dir/bin/bspwm_unurgent_on_active_desktop.sh
