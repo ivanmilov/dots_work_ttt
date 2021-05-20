@@ -2,20 +2,20 @@
 
 PATH=$PATH:/home/i/.config/bspwm/scripts; export PATH;
 
-wmctrl -c Plasma
 pgrep -x sxhkd > /dev/null || /usr/local/bin/sxhkd -t 1 &
 
-# # drop the 'urgent' flag on 'focus' event
+# drop the 'urgent' flag on 'focus' event
 pgrep -f bspwm_unurgent_on_active_desktop.sh > /dev/null || bspwm_unurgent_on_active_desktop.sh & > /dev/null
 
-# # picom
+# picom
 pgrep -x picom > /dev/null || /home/i/proj/picom/build/src/picom --config /home/i/.config/i3/picom_lite.conf &
 
 # btops
 pgrep -x btops > /dev/null || btops &
 
-# # lower panels. desktop must be underneath everything else
+# lower panels. desktop must be underneath everything else
 xdo lower -n plasmashell
+wmctrl -c Plasma
 
 # polybar
 ~/.config/polybar/my/launch.sh
@@ -23,7 +23,7 @@ xdo lower -n plasmashell
 greenclip daemon &
 
 bspc monitor %DP-1.1 -d 1 2 3 4 5 6 7 8 9 10
-bspc monitor %DP-1.2 -d 11 12 13 14 15 16 17 18 19 20
+bspc monitor %DP-1.2 -d 1 2 3 4 5 6 7 8 9 10
 
 bspc config border_width         0
 bspc config window_gap           5
@@ -39,13 +39,13 @@ bspc config right_monocle_padding  0
 bspc config bottom_monocle_padding 0
 bspc config left_monocle_padding   0
 
-bspc config -m  %DP-1.1 top_padding 24
+bspc config -m  %DP-1.1 top_padding 30
 bspc config -m  %DP-1.2 top_padding 0
 bspc config bottom_padding 27
 
 bspc rule -a "Desktop — Plasma" state=floating focus=off
 bspc rule -a "apport-kde" state=floating focus=off
-bspc rule -a plasmashell state=floating focus=off
+bspc rule -a plasmashell state=floating focus=off manage=off
 bspc rule -a TelegramDesktop desktop='19' follow=on
 bspc rule -a Zenity state=floating
 bspc rule -a HELP state=floating
