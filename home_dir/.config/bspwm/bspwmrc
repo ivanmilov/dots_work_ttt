@@ -11,8 +11,8 @@ pgrep -f bspwm_unurgent_on_active_desktop.sh > /dev/null || bspwm_unurgent_on_ac
 # # picom
 pgrep -x picom > /dev/null || /home/i/proj/picom/build/src/picom --config /home/i/.config/i3/picom_lite.conf &
 
-# # polybar
-~/.config/polybar/my/launch.sh
+# btops
+pgrep -x btops > /dev/null || btops &
 
 # # lower panels. desktop must be underneath everything else
 xdo lower -n plasmashell
