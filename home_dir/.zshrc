@@ -138,3 +138,6 @@ ZLE_RPROMPT_INDENT=0
 # *-magic is known buggy in some versions; disable if so
 # disable the code from ~/.oh-my-zsh/lib/misc.zsh
 DISABLE_MAGIC_FUNCTIONS=true
+
+
+PATH="$PATH:~/.config/bspwm/scripts"; export PATH;
