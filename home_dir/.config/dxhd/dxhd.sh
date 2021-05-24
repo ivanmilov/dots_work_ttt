@@ -34,7 +34,7 @@ term_fallback=terminator
 
 ## htop
 #super + i
-	alacritty -e htop
+	$term -e htop
 
 ## libinput gestures restart
 #super + alt + g
@@ -196,12 +196,13 @@ esac
 #super + {_, shift} + n
 	SEL={'desktop -f','node -d'}; \
 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
-	bspc `echo $SEL` any.local.\!occupied $FOLLOW || \
-	bspc `echo $SEL` any.\!occupied $FOLLOW
+	bspc `echo $SEL` any.local.\!occupied $FOLLOW
+	# bspc `echo $SEL` any.\!occupied $FOLLOW
 
 ##move desktop to monitor
 #super + alt + {Left,Right}
-bspc desktop -m {prev,next} --follow
+swap_desktop_to_another_monitor.sh {no, matter}
+## bspc desktop -m {prev,next} --follow
 
 ## bspc desktop -m {prev,next} --follow && \
 ## bspc query -M | while read -r monitor; do \
