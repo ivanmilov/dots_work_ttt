@@ -1,0 +1,20 @@
+configuration {
+	modi: "drun,window";
+	font: "FiraCode Nerd Font 12";
+	show-icons: true;
+	terminal: "terminator";
+	icon-theme: "Papirus";
+	drun-match-fields: "all";
+	drun-show-actions: true;
+	drun-display-format: "{name}";
+	disable-history: false;
+	sort: true;
+	sorting-method: "fzf";
+	sidebar-mode: false;
+	matching: "fuzzy";
+	hide-scrollbar: true;
+	fullscreen: false;
+	theme: "/home/i/.config/rofi/themes/cuts.rasi";
+	combi-hide-mode-prefix: true;
+	display-drun: "";
+}
