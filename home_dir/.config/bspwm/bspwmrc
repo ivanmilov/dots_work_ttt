@@ -15,7 +15,8 @@ pgrep -x picom > /dev/null || /home/i/proj/picom/build/src/picom --config /home/
 pgrep -x btops > /dev/null || btops &
 
 # lower panels. desktop must be underneath everything else
-xdo lower -n plasmashell
+# xdo lower -n plasmashell
+xdo hide -n plasmashell # hide it completely
 wmctrl -c Plasma
 
 # polybar
