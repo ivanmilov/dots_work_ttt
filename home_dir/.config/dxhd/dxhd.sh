@@ -190,11 +190,17 @@ esac
 	bspc node -d older -f
 
 ## focus or send to the given desktop
-#super + {_,alt} + {_,shift} + {1-9,0}
-	MON={'2','3'}; \
-	SEL={'desktop -f','node -d'}; \
-	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
-	bspc `echo $SEL` ^$MON:^{1-9,10} $FOLLOW
+## #super + {_,alt} + {_,shift} + {1-9,0}
+## 	MON={'2','3'}; \
+## 	SEL={'desktop -f','node -d'}; \
+## 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
+## 	bspc `echo $SEL` ^$MON:^{1-9,10} $FOLLOW
+
+#super + {_,shift} + {1-9,0}
+	SEL={'desktop -f','node -d'};
+	N={1-9,10};
+	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`;
+	double_click.sh "desktop" "bspc $SEL ^2:^$N $FOLLOW" "bspc $SEL ^3:^$N $FOLLOW"
 
 ## open/move_to next new desktop
 #super + {_, shift} + n
