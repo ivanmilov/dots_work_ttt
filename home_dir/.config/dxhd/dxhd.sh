@@ -28,10 +28,6 @@ term_fallback=terminator
 #super + F1
 	~/.config/dxhd/dxhd_help.sh
 
-## show layout help
-#super + ctrl + l
-	alacritty --class HELP,HELP -e less ~/.config/bspwm/scripts/bsp_layout_switcher_help.txt
-
 ## htop
 #super + i
 	$term -e htop
@@ -90,8 +86,16 @@ term_fallback=terminator
 	# ~/.config/bspwm/scripts/swap_biggest.sh
 
 ## bsp_layout_swither (super + h; l) for help
-#super + {_,alt +} l
-	bsp_layout_switcher {"",set}
+##super + {_,alt +} l
+##	bsp_layout_switcher {"",set}
+
+## bsp_layout_swither for help
+#super + l
+	double_click.sh	"bsp_layout_switcher" "bsp_layout_switcher"  "bsp_layout_switcher set"
+
+## show layout_swither help
+#super + ctrl + l
+	alacritty --class HELP,HELP -e less ~/.config/bspwm/scripts/bsp_layout_switcher_help.txt
 
 ##
 ## state/flags
