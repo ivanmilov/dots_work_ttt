@@ -286,7 +286,7 @@ swap_desktop_to_another_monitor.sh {no, matter}
 #super + {_,shift} + m
 	bspc {desktop -f,node -d} ^3:^5 --follow
 
-super + k
+#super + k
 	/home/i/.config/polybar/my/launch.sh
 	# bspc node -R 90
 	# bspc node -f @parent; \
