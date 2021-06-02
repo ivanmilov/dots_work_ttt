@@ -2,30 +2,6 @@
 
 PATH=$PATH:/home/i/.config/bspwm/scripts; export PATH;
 
-# pgrep -x sxhkd > /dev/null || /usr/local/bin/sxhkd -t 1 &
-pgrep -x dxhd > /dev/null || dxhd &
-
-# drop the 'urgent' flag on 'focus' event
-pgrep -f bspwm_unurgent_on_active_desktop.sh > /dev/null || bspwm_unurgent_on_active_desktop.sh & > /dev/null
-
-# picom
-pgrep -x picom > /dev/null || /home/i/proj/picom/build/src/picom --config /home/i/.config/i3/picom_lite.conf &
-
-# btops
-pgrep -x btops > /dev/null || btops &
-
-# lower panels. desktop must be underneath everything else
-# xdo lower -n plasmashell
-xdo hide -n plasmashell # hide it completely
-wmctrl -c Plasma
-
-# polybar
-~/.config/polybar/my/launch.sh
-
-greenclip daemon &
-# greenclip
-pgrep -x greenclip > /dev/null || greenclip daemon &
-
 bspc monitor %DP-1.1 -d 1 2 3 4 5 6 7 8 9 10
 bspc monitor %DP-1.2 -d 1 2 3 4 5 6 7 8 9 10
 
@@ -50,13 +26,45 @@ bspc config bottom_padding 27
 
 bspc rule -a "Desktop — Plasma" state=floating focus=off
 bspc rule -a "apport-kde" state=floating focus=off
-bspc rule -a plasmashell state=floating focus=off manage=off
+bspc rule -a plasmashell state=floating focus=off # manage=off
 bspc rule -a TelegramDesktop desktop='19' follow=on
 bspc rule -a Zenity state=floating
 bspc rule -a HELP state=floating
 bspc rule -a plasmawindowed state=floating
-# bspc rule -a Gimp desktop='^8' state=floating follow=on
-# bspc rule -a Chromium desktop='^2'
-# bspc rule -a mplayer2 state=floating
-# bspc rule -a Kupfer.py focus=on
-# bspc rule -a Scrnneenkey manage=off
+
+
+# pgrep -x sxhkd > /dev/null || /usr/local/bin/sxhkd -t 1 &
+pgrep -x dxhd > /dev/null || dxhd &
+
+# drop the 'urgent' flag on 'focus' event
+pgrep -f bspwm_unurgent_on_active_desktop.sh > /dev/null || bspwm_unurgent_on_active_desktop.sh & > /dev/null
+
+# picom
+pgrep -x picom > /dev/null || /home/i/proj/picom/build/src/picom --config /home/i/.config/i3/picom_lite.conf &
+
+# btops
+pgrep -x btops > /dev/null || btops &
+
+# lower panels. desktop must be underneath everything else
+# xdo lower -n plasmashell
+xdo hide -n plasmashell # hide it completely
+wmctrl -c Plasma
+
+# polybar
+~/.config/polybar/my/launch.sh
+
+# fix notification? run and kill
+# plasmawindowed org.plasma-light.notifications-sidebar
+
+# greenclip
+pgrep -x greenclip > /dev/null || greenclip daemon &
+
+# https://github.com/fennerm/flashfocus
+flashfocus &
+
+# Trackpad setup
+libinput-gestures-setup restart
+xinput set-prop 'Apple Inc. Magic Trackpad 2' 'libinput Accel Speed' 0.4
+
+# set wallpaper
+feh --bg-scale ~/wall/wall.jpg
