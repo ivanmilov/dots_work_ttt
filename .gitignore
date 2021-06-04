@@ -4,6 +4,8 @@
 home_dir/*
 home_dir/.config/*
 home_dir/.config/polybar/*
+home_dir/.local/*
+home_dir/.local/share/*
 home_dir/bin/*
 
 # Except for:
@@ -71,3 +73,8 @@ home_dir/bin/*
 # wall
 !home_dir/wall
 
+# .local
+!home_dir/.local/
+!home_dir/.local/share/
+!home_dir/.local/share/konsole/
+!home_dir/.local/share/konsole/

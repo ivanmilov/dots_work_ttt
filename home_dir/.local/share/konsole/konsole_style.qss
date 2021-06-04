@@ -1,0 +1,59 @@
+/* from https://gist.github.com/Zren/e541eedca6dae09524b4368c009e06af */
+QScrollBar {
+    background: #00272822;
+    margin: 0;
+}
+
+QScrollBar:vertical {
+    width: 10px;
+}
+
+QScrollBar:vertical:hover {
+    width: 10px;
+}
+
+QScrollBar:horizontal {
+    height: 10px;
+}
+
+QScrollBar::handle {
+    padding: 0;
+    margin: 2px;
+    border-radius: 2px;
+    border: 2px solid #333333;
+    background: #333333;
+}
+
+QScrollBar::handle:vertical {
+    min-height: 20px;
+    min-width: 0px;
+}
+
+QScrollBar::handle:horizontal {
+    min-width: 20px;
+    min-height: 0px;
+}
+QScrollBar::handle:vertical:hover {
+    border-radius: 5px;
+    border-color: #8a3d3d;
+    background: #8a3d3d;
+}
+
+QScrollBar::handle:pressed {
+    background: #268bd2;
+    border-color: #268bd2;
+}
+
+QScrollBar::add-line , QScrollBar::sub-line {
+    height: 0px;
+    border: 0px;
+}
+QScrollBar::up-arrow, QScrollBar::down-arrow {
+    border: 0px;
+    width: 0px;
+    height: 0px;
+}
+
+QScrollBar::add-page, QScrollBar::sub-page {
+    background: none;
+}
