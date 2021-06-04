@@ -1,5 +1,8 @@
 #!/bin/bash
 
+first=$(bspc query -M --names | head -n1)
+[[ $first != "DP-0" ]] && bspc query -M -m pointed ; exit 0;
+
 # stupid workaround to get pointed monitor
 # monitor config: [DP-0](laptop:closed,disabled)] [DP-1.1] [DP-1.2]
 # for some reason instead of returning [DP-1.1] `bspc query -M -m pointed` returns [DP-0] WTF!
@@ -14,6 +17,6 @@ do
 done < <(bspc query -M)
 
 mon_id=$( bspc query -M -m pointed )
-[[ $mon_id == $m0 ]] && mon_id=$m1
+[[ $mon_id == $m0 && $first == "DP-0" ]] && mon_id=$m1
 
 echo $mon_id
