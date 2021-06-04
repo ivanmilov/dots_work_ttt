@@ -1,6 +1,6 @@
 #!/bin/bash
 
-term=konsole
+term='konsole -stylesheet /home/i/.local/share/konsole/konsole_style.qss'
 term_fallback=terminator
 
 ##
