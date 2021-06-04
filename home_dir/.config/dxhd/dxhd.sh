@@ -200,7 +200,8 @@ esac
 	SEL={'desktop -f','node -d'};
 	N={1-9,10};
 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`;
-	double_click.sh "desktop" "bspc $SEL ^2:^$N $FOLLOW" "bspc $SEL ^3:^$N $FOLLOW"
+	double_click.sh "desktop" "bspc $SEL ^1:^$N $FOLLOW" "bspc $SEL ^2:^$N $FOLLOW"
+	# double_click.sh "desktop" "bspc $SEL ^2:^$N $FOLLOW" "bspc $SEL ^3:^$N $FOLLOW"
 
 ## open/move_to next new desktop
 #super + {_, shift} + n
