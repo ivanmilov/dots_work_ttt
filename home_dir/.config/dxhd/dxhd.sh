@@ -3,6 +3,8 @@
 term='konsole -stylesheet /home/i/.local/share/konsole/konsole_style.qss'
 term_fallback=terminator
 
+source export_mons.sh
+
 ##
 ## wm independent hotkeys
 ##
@@ -196,12 +198,12 @@ esac
 ## 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
 ## 	bspc `echo $SEL` ^$MON:^{1-9,10} $FOLLOW
 
+## focus or send to the given desktop
 #super + {_,shift} + {1-9,0}
 	SEL={'desktop -f','node -d'};
 	N={1-9,10};
 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`;
-	double_click.sh "desktop" "bspc $SEL ^1:^$N $FOLLOW" "bspc $SEL ^2:^$N $FOLLOW"
-	# double_click.sh "desktop" "bspc $SEL ^2:^$N $FOLLOW" "bspc $SEL ^3:^$N $FOLLOW"
+	double_click.sh "desktop" "bspc $SEL ^$m1:^$N $FOLLOW" "bspc $SEL ^$m2:^$N $FOLLOW"
 
 ## open/move_to next new desktop
 #super + {_, shift} + n
@@ -285,10 +287,13 @@ swap_desktop_to_another_monitor.sh {no, matter}
 
 ## Go to working desktop
 #super + {_,shift} + m
-	bspc {desktop -f,node -d} ^3:^5 --follow
+	bspc {desktop -f,node -d} ^$m2:^5 --follow
 
 #super + k
 	/home/i/.config/polybar/my/launch.sh
+	# double_click.sh "huy" "notify-send 'test 1'" "notify-send 'test 2'"
+	# bspc monitor %DP-1.1 -d 1 2 3 4 5 6 7 8 9 10;
+	# bspc monitor %DP-1.2 -d 1 2 3 4 5 6 7 8 9 10
 	# bspc node -R 90
 	# bspc node -f @parent; \
 	# bspc desktop -B
