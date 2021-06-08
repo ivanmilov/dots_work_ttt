@@ -227,7 +227,7 @@ swap_desktop_to_another_monitor.sh {no, matter}
 ##
 
 ## preselect{cancel} the direction
-#super + ctrl + shift + {Left,Down,Up,Right}
+#super + ctrl + shift + alt + {Left,Down,Up,Right}
 	bspc node --presel-dir '~{west,south,north,east}'
 
 ## preselect the ratio
@@ -239,11 +239,11 @@ swap_desktop_to_another_monitor.sh {no, matter}
 ## 	bspc node -p cancel
 
 ## Move current window to a pre-selected space
-#super + ctrl + shift + m
+#super + ctrl + shift + alt + m
 	bspc node -n last.!automatic --follow
 
 ## cancel the preselection for the focused desktop
-#super + ctrl + shift + space
+#super + ctrl + shift + alt + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 ##
