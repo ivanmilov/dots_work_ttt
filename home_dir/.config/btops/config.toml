@@ -1,0 +1,55 @@
+append-when-occupied = false
+ignore-mons = ["DP-0"]
+max = 20
+min = 2
+remove-empty = false
+renamers = ["classified", "client", "numeric"]
+unique-name = true
+watch-config = true
+
+ignore-clients = ["plasmashell"]
+
+[names]
+constant = ""
+
+[[names.classified]]
+"" = ["Chromium", "Google-chrome-unstable", "Google-chrome"]
+
+[[names.classified]]
+"" = ["Firefox"]
+
+[[names.classified]]
+"" = ["Dolphin-emu"]
+
+[[names.classified]]
+"" = ["discord", "Microsoft Teams - Preview"]
+
+[[names.classified]]
+"" = ["Code"]
+
+[[names.classified]]
+"" = ["Termite", "Alacritty", "URxvt", "Terminator", "konsole"]
+
+[[names.classified]]
+"" = ["Thunar", "dolphin", "Doublecmd"]
+
+[[names.classified]]
+"" = ["Telegram", "TelegramDesktop"]
+
+[[names.classified]]
+"" = ["sublime_merge", "Sublime_merge"]
+
+[[names.classified]]
+"" = ["spotify", "Spotify"]
+
+[[names.classified]]
+"" = ["Sublime_text"]
+
+[[names.classified]]
+"" = ["systemsettings"]
+
+[[names.classified]]
+"" = ["VirtualBox Machine", "VirtualBox Manager", "virtualbox", "VirtualBoxVM", "VirtualBox"]
+
+[[names.classified]]
+"" = ["tabbed"]

@@ -30,6 +30,9 @@ home_dir/bin/*
 # bspwm
 !home_dir/.config/bspwm/
 
+# btops
+!home_dir/.config/btops/
+
 # htop
 !home_dir/.config/htop
 
