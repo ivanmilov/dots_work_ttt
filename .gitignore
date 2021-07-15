@@ -13,6 +13,7 @@ home_dir/bin/*
 ## home
 !home_dir
 !home_dir/.bazelrc
+!home_dir/.clang-format
 !home_dir/.gitconfig
 !home_dir/.profile
 

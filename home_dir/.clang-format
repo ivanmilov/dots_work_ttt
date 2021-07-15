@@ -1,0 +1,12 @@
+﻿---
+BasedOnStyle: Microsoft
+AllowShortFunctionsOnASingleLine: InlineOnly
+AlwaysBreakTemplateDeclarations: 'Yes'
+ColumnLimit: '120'
+FixNamespaceComments: 'true'
+Language: Cpp
+PointerAlignment: Left
+UseTab: Never
+IndentPPDirectives: BeforeHash
+
+...
