@@ -1,0 +1,27 @@
+-------- NODE
+
+// List the IDs of the matching nodes.
+bspc query -N
+    bspc query -N -n .hidden                    -> get hidden nodes
+
+
+// Set or toggle the given flag for the selected node.
+bspc node -g hidden|sticky|private|locked|marked[=on|off]
+    bspc node -g hidden                         -> hide active node
+
+// --to-node NODE_SEL [--follow]  Send the selected node on the given node
+bspc node -n
+
+// -d, --to-desktop DESKTOP_SEL [--follow] Send the selected node to the given desktop.
+bspc node -d
+    bspc node -d 15                             -> send to desktop 15
+
+
+-f, --focus [NODE_SEL]  Focus the selected or given node.
+bspc node -f <id>
+
+-------- DESKTOP
+
+// List the IDs (or names) of the matching desktops.
+bspc query -D
+    bspc query -D -d focused                    -> get focused desktop
