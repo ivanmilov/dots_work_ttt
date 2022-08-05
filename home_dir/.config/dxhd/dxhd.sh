@@ -36,7 +36,11 @@ source export_mons.sh
 
 ## libinput gestures restart
 #super + alt + g
-	libinput-gestures-setup restart; notify-send 'libinput-gestures-setup' 'restart'
+	libinput-gestures-setup restart;
+	xinput set-prop 'Apple Inc. Magic Trackpad 2' 'libinput Accel Speed' 0.4;
+	## xinput set-prop 'Apple Inc. Magic Trackpad 2' 'libinput Natural Scrolling Enabled' 1
+	xinput set-prop 'Apple Inc. Magic Trackpad 2' 'libinput Natural Scrolling Enabled' 0
+	notify-send 'libinput-gestures-setup' 'restart';
 
 ## flameshot gui
 #ctrl + Print
@@ -60,7 +64,7 @@ source export_mons.sh
 
 ## Clipboard manager
 #ctrl + alt + c
-	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+	rofi -modi "clipboard:greenclip print" -show clipboard  -matching glob -run-command '{cmd}'
 
 ##
 ## bspwm hotkeys
@@ -69,6 +73,8 @@ source export_mons.sh
 ## quit/restart bspwm
 #super + alt + {q,r}
 	bspc {quit,wm -r}
+
+	## qdbus org.kde.ksmserver /KSMServer logout 1 3 3
 
 ## close and kill
 #super + {_,shift + }q
@@ -212,7 +218,7 @@ esac
 	bspc `echo $SEL` any.local.\!occupied $FOLLOW
 	# bspc `echo $SEL` any.\!occupied $FOLLOW
 
-##move desktop to monitor
+## move desktop to monitor
 #super + alt + {Left,Right}
 swap_desktop_to_another_monitor.sh {no, matter}
 ## bspc desktop -m {prev,next} --follow
@@ -289,8 +295,10 @@ swap_desktop_to_another_monitor.sh {no, matter}
 #super + {_,shift} + m
 	bspc {desktop -f,node -d} ^$m2:^5 --follow
 
+
 #super + k
 	/home/i/.config/polybar/my/launch.sh
+    # bspc desktop -l next
 	# double_click.sh "huy" "notify-send 'test 1'" "notify-send 'test 2'"
 	# bspc monitor %DP-1.1 -d 1 2 3 4 5 6 7 8 9 10;
 	# bspc monitor %DP-1.2 -d 1 2 3 4 5 6 7 8 9 10
@@ -301,6 +309,10 @@ swap_desktop_to_another_monitor.sh {no, matter}
 	# pkill sxhkd ; sleep 4; /usr/local/bin/sxhkd -r ~/tmp/sx.out
 
 	# sleep 1; xset dpms force standby
+
+## Loop tiling/monocle
+#super + o
+    bspc desktop -l next
 
 
 ## Rotate
@@ -323,3 +335,7 @@ swap_desktop_to_another_monitor.sh {no, matter}
 ## go to urgent desktop
 #super + u
 	bspc desktop -f 'any.urgent'
+
+## toggle plasmashell
+#super + s
+    xdo lower -n plasmashell

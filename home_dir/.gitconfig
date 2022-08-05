@@ -4,3 +4,5 @@
 	name = Ivan Milov
 [commit]
 	gpgSign = true
+[core]
+	editor = 'subl' -n -w

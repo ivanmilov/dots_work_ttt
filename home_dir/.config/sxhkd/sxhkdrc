@@ -5,8 +5,9 @@
 #
 
 # terminal emulator
-super + Return
-	alacritty || terminator
+super + {_,shift + } Return
+	{konsole, terminator}
+	# alacritty || terminator
 
 # program launcher
 # super + @space
@@ -21,7 +22,7 @@ super + Escape
 	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config' &
 
 # show help
-super + h; s
+super + F1
 	~/.config/sxhkd/sxhkd_help.sh
 
 # show layout help
@@ -40,7 +41,7 @@ super + alt + g
 ctrl + Print
 	flameshot gui
 
-# https://github.com/svenstaro/rofi-calc
+# rofi calc https://github.com/svenstaro/rofi-calc
 super + ctrl + d
 	rofi -plugin-path ~/proj/rofi-calc/build/.libs -show calc -modi calc -no-show-match -no-sort
 
@@ -109,9 +110,18 @@ super + ctrl + {m,x,y,z}
 # super + {_,shift + }{Left,Down,Up,Right}
 # 	bspc node -{f,s} {west,south,north,east}
 
-super + {Left,Down,Up,Right}
-	bspc node -f {west,south,north,east}
+# super + {Left,Down,Up,Right}
+# 	bspc node -f {west,south,north,east}
 
+# focus node in the given direction
+super + {Down,Up}
+	bspc node -f {south,north}
+
+# allows to focuw
+# focus node/desktop in the given direction
+super + {Left,Right}
+	DIR={west,east}; \
+	bspc node -f $DIR || bspc monitor -f $DIR
 
 # Swap focused window with the one in the given direction.  If there is
 # no window in that direction, a receptacle will be created.  Inputting
@@ -160,20 +170,11 @@ super + shift + Tab
 	bspc node -d older -f
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
+super + {_,alt} + {_,shift} + {1-9,0}
+	MON={'2','3'}; \
 	SEL={'desktop -f','node -d'}; \
 	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
-	bspc `echo $SEL` '{1-9,10}' $FOLLOW
-
-super + alt + {_,shift} + {1-9}
-	SEL={'desktop -f','node -d'}; \
-	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
-	bspc `echo $SEL` 1{1-9} $FOLLOW
-
-super + alt + {_,shift} + 0
-	SEL={'desktop -f','node -d'}; \
-	FOLLOW=`[[ $SEL == 'node -d' ]] && echo --follow`; \
-	bspc `echo $SEL` 20 $FOLLOW
+	bspc `echo $SEL` ^$MON:^{1-9,10} $FOLLOW
 
 # open/move_to next new desktop
 super + {_, shift} + n
@@ -186,9 +187,10 @@ super + {_, shift} + n
 super + alt + {Left,Right}
 	bspc desktop -m {prev,next} --follow && \
 	bspc query -M | while read -r monitor; do \
-	    bspc query -D -m "$monitor" --names | sort -g | xargs -rd'\n' bspc monitor "$monitor" -o; \
+	    bspc query -D -m "$monitor" -d .occupied --names | sort -g | xargs -rd'\n' bspc monitor "$monitor" -o; \
 	done
 
+	    # bspc query -D -m "$monitor" --names | sort -g | xargs -rd'\n' bspc monitor "$monitor" -o; \
 #
 # preselect
 #
@@ -255,16 +257,17 @@ super + alt + shift + {Left,Down,Up,Right}
 
 # Go to working desktop
 super + {_,shift} + m
-	bspc {desktop -f,node -d} 15 --follow
+	bspc {desktop -f,node -d} ^3:^5 --follow
 
 super + k
-	echo "h"
+	/home/i/.config/polybar/my/launch.sh
 	# bspc node -R 90
 	# bspc node -f @parent; \
 	# bspc desktop -B
 	# bspc node -f @parent; bspc node -F horizontal
 	# pkill sxhkd ; sleep 4; /usr/local/bin/sxhkd -r ~/tmp/sx.out
 
+	# sleep 1; xset dpms force standby
 
 
 # Rotate
@@ -274,3 +277,16 @@ super + r
 # Dynamic gaps.
 super + shift + bracket{left,right}
 	bspc config -d focused window_gap "$(($(bspc config -d focused window_gap) {-,+} 5 ))"
+
+
+# hide/unhide
+super + {_,shift} + v
+	unhider.sh {unhide, hide}
+
+# click on empty desktop make it active
+~button1
+	click_select_empty_desktop.sh
+
+# go to urgent desktop
+super + u
+	bspc desktop -f 'any.urgent'

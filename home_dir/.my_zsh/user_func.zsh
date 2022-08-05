@@ -31,10 +31,15 @@ bindkey "^b" my_bazel_queue_fzf								#{{# ctrl+b 		fzf bazel target
 
 # fzf branch
 fbr() {
-  local branches branch
-  branches=$(git --no-pager branch -vv) &&
-  branch=$(echo "$branches" | fzf +m) &&
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  # local branches branch
+  # branches=$(git --no-pager branch -vv) &&
+  # branch=$(echo "$branches" | fzf +m) &&
+  # git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  local branch
+  branch=$(git branch |  cut -c 3- | fzf -m --preview="git log --color=always {} --")
+  if [ -n "$branch" ]; then
+    git checkout $branch
+  fi
 }
 
 zle     -N   fbr
@@ -131,19 +136,23 @@ fzf-down() {
 # https://gist.github.com/junegunn/8b572b8d4b5eddd8b85e5f4d40f17236
 my_gf() {
   is_in_git_repo || return
-  git -c color.status=always status --short |
-  fzf-down -m --ansi --nth 2..,.. \
-    --preview '(git diff --color=always -- {-1} | sed 1,4d; cat {-1}) | head -500' |
-  cut -c4- | sed 's/.* -> //'
+  out=$(git -c color.status=always status --short | \
+  fzf -m --ansi --nth 2..,.. \
+    --preview '(git diff --color=always -- {-1} | sed 1,4d; cat {-1}) | head -500' | \
+  cut -c4- \
+  | sed 's/.* -> //' )
+
+   BUFFER="$BUFFER"$(echo "${out}")
 }
 
 my_gh() {
   is_in_git_repo || return
-  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --color=always --no-merges |
-  fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
-    --header 'Press CTRL-S to toggle sort' \
-    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES |
-  grep -o "[a-f0-9]\{7,\}"
+  # git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --color=always --no-merges |
+  # fzf-down --ansi --no-sort --reverse --multi  \
+  #   --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES |
+  # grep -o "[a-f0-9]\{7,\}"
+  git log --oneline --color=always --date=short --pretty="format:%C(auto)%h %s %Cblue%an %C(green)%cd" "$@" | \
+      fzf --reverse --exact --no-sort --ansi --preview 'git show -p --stat --pretty=fuller --color=always {1}'
 }
 
 zle -N my_gh

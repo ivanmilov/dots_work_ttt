@@ -100,6 +100,7 @@ source $MY_ZSH/user_func.sh
 source $MY_ZSH/user_func.zsh
 source $MY_ZSH/aliases.zsh
 source $MY_ZSH/aliases_work.zsh
+source $MY_ZSH/work.zsh
 ### fzf ###
 # preview
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || batcat --style=numbers --color=always {} || tree -C {}) 2> /dev/null | head -50'"
@@ -141,3 +142,13 @@ DISABLE_MAGIC_FUNCTIONS=true
 
 
 PATH="$PATH:~/.config/bspwm/scripts"; export PATH;
+
+# perl shit
+PATH="/home/i/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/i/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/i/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/i/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/i/perl5"; export PERL_MM_OPT;
+
+
+unsetopt SHARE_HISTORY

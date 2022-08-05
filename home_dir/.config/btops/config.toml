@@ -7,7 +7,7 @@ renamers = ["classified", "client", "numeric"]
 unique-name = true
 watch-config = true
 
-ignore-clients = ["plasmashell"]
+ignore-clients = ["plasmashell", "Zenity"]
 
 [names]
 constant = ""
@@ -31,7 +31,7 @@ constant = ""
 "" = ["Termite", "Alacritty", "URxvt", "Terminator", "konsole"]
 
 [[names.classified]]
-"" = ["Thunar", "dolphin", "Doublecmd"]
+"" = ["Thunar", "dolphin", "Doublecmd", "Org.gnome.Nautilus"]
 
 [[names.classified]]
 "" = ["Telegram", "TelegramDesktop"]
@@ -53,3 +53,9 @@ constant = ""
 
 [[names.classified]]
 "" = ["tabbed"]
+
+[[names.classified]]
+"歷" = ["org.remmina.Remmina"]
+
+[[names.classified]]
+"" = ["Gnome-calculator"]

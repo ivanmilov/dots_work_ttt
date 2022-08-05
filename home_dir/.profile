@@ -38,3 +38,4 @@ export PATH=$PATH:$HOME/.local/bin/go/bin
 export GOBIN=$HOME/bin
 
 eval "$(ssh-agent -s)"
+. "$HOME/.cargo/env"

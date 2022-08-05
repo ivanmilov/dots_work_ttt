@@ -53,7 +53,7 @@ pgrep -x btops > /dev/null || btops &
 # lower panels. desktop must be underneath everything else
 # xdo lower -n plasmashell
 xdo hide -n plasmashell # hide it completely
-wmctrl -c Plasma
+# wmctrl -c Plasma
 
 # polybar
 ~/.config/polybar/my/launch.sh
@@ -61,7 +61,7 @@ wmctrl -c Plasma
 # fix notification? run and kill
 # plasmawindowed org.plasma-light.notifications-sidebar
 
-# greenclip
+# # greenclip
 pgrep -x greenclip > /dev/null || greenclip daemon &
 
 # https://github.com/fennerm/flashfocus
@@ -73,3 +73,6 @@ xinput set-prop 'Apple Inc. Magic Trackpad 2' 'libinput Accel Speed' 0.4
 
 # set wallpaper
 feh --bg-scale ~/wall/wall.jpg
+
+# bluetooth profile
+pgrep -x bt_profile > /dev/null || /home/i/proj/bt_profile/bt_profile -sink "bluez_card.98_09_CF_FE_50_7B"

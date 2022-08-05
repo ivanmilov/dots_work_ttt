@@ -9,11 +9,11 @@ Parent=FALLBACK/
 [Keyboard]
 KeyBindings=default
 
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+
 [Scrolling]
 HistoryMode=2
 
 [Terminal Features]
 UrlHintsModifiers=0
-
-[KonsoleWindow]
-ShowMenuBarByDefault=false

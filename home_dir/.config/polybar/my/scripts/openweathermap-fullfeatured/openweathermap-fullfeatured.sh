@@ -102,6 +102,7 @@ if [ -n "$current" ] && [ -n "$forecast" ]; then
     sun_set=$(echo "$current" | jq ".sys.sunset")
     now=$(date +%s)
 
+    daytime=" $(get_duration "$sun_set")"
     if [ "$sun_set" -gt "$now" ]; then
         daytime=" $(get_duration "$sun_set")"
     fi
